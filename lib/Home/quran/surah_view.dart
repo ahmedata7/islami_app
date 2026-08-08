@@ -17,42 +17,35 @@ class _SurahViewState extends State<SurahView> {
     var args = ModalRoute.of(context)?.settings.arguments as surahDetailsArgs;
      readQuranFiles(args.index);
      return Defaultscreen(
-      body: Expanded(
-        child: Card(
-          color: Colors.white.withOpacity(0.8),
-          margin: EdgeInsets.symmetric(horizontal: 40, vertical: 60),
-          elevation: 20,
-          child: verse.isNotEmpty
-              ? Stack(
+      body: Card(
+        margin: EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+        elevation: 20,
+        child: verse.isNotEmpty
+            ? Expanded(
+              child: Column(
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          args.chapterName,
-                          style: TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.w400,
-                          ),
+                          textDirection: TextDirection.rtl,
+                          "   سورة ${args.chapterName} ",
+                          style: Theme.of(context).textTheme.bodyLarge
                         ),
                       ],
                     ),
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 70,right: 5,left: 5,bottom: 10),
+                        padding: const EdgeInsets.only(top: 30,right: 5,left: 5,bottom: 20),
                         child: ListView.builder(
                           itemBuilder: (context, index) {
-                            return Center(
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 20),
-                                child: Text(
-                                  "${verse[index]}(${index + 1})",
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                  textDirection: TextDirection.rtl,
-                                ),
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 10),
+                              child: Text(
+                                textAlign: TextAlign.center,
+                                "${verse[index]}(${index + 1})",
+                                style: Theme.of(context).textTheme.bodyMedium,
+                                textDirection: TextDirection.rtl,
                               ),
                             );
                           },
@@ -61,9 +54,9 @@ class _SurahViewState extends State<SurahView> {
                       ),
                     ),
                   ],
-                )
-              : Center(child: CircularProgressIndicator()),
-        ),
+                ),
+            )
+            : Center(child: CircularProgressIndicator()),
       ),
     );
   }

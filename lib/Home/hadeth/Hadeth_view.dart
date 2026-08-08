@@ -19,7 +19,6 @@ class _HadethViewState extends State<HadethView> {
      return Defaultscreen(
       body: Expanded(
         child: Card(
-          color: Colors.white.withOpacity(0.8),
           margin: EdgeInsets.symmetric(horizontal: 40, vertical: 60),
           elevation: 20,
           child: hadethverse.isNotEmpty
@@ -29,9 +28,7 @@ class _HadethViewState extends State<HadethView> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(args.hadethName,
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w400,),),
+                                    style: Theme.of(context).textTheme.bodyLarge,),
                       ],
                     ),
                     Expanded(
@@ -39,17 +36,13 @@ class _HadethViewState extends State<HadethView> {
                         padding: const EdgeInsets.only(top: 60,right: 5,left: 5,bottom: 10),
                         child: ListView.builder(
                           itemBuilder: (context, index) {
-                            return Center(
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 20),
-                                child: Text(
-                                  "${hadethverse[index]}",
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                  textDirection: TextDirection.rtl,
-                                ),
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 10),
+                              child: Text(
+                                textAlign: TextAlign.center,
+                                "${hadethverse[index]}",
+                                style: Theme.of(context).textTheme.bodyMedium,
+                                textDirection: TextDirection.rtl,
                               ),
                             );
                           },

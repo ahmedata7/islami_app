@@ -26,6 +26,8 @@ class IslamiApp extends StatelessWidget {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       locale: Locale("ar"),
+      darkTheme: themeStyle.darkTheme,
+      themeMode:ThemeMode.dark,
     );
   }
 }

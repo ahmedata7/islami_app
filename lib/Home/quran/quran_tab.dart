@@ -134,8 +134,8 @@ class QuranTab extends StatelessWidget {
             color: themeStyle.lightPrimary,
           ),
           Text(
-            appTranslation(context).chapterTitle,
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+            appTranslation(context).chapterTitle,,
+            style: Theme.of(context).textTheme.displayLarge,
           ),
           Container(
             width: double.infinity,

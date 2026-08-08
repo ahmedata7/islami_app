@@ -16,10 +16,8 @@ class Surahdetails extends StatelessWidget {
           Navigator.pushNamed(context, SurahView.routeName,arguments: surahDetailsArgs(chapterName: title, index: index));
         }, child:Text(
           title,
-          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 24),
-        ),style: OutlinedButton.styleFrom(shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),),),
+          style: Theme.of(context).textTheme.displayMedium,
+        ),style: Theme.of(context).outlinedButtonTheme.style,),
       ),
     );
   }

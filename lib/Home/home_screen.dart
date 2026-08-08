@@ -5,6 +5,7 @@ import 'package:islami_app/Home/quran/quran_tab.dart';
 import 'package:islami_app/Home/radio/radio_tab.dart';
 import 'package:islami_app/Home/tasbeh/tasbeh_tab.dart';
 import 'package:islami_app/getImagePath.dart';
+import 'package:islami_app/themes/theme_data.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "home-screen";
@@ -19,13 +20,15 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Image.asset(getFullPath("main_background.png"), fit: BoxFit.cover),
+        Image.asset(getFullPath(themeStyle.isDark?"dark_background.png":"main_background.png"), fit: BoxFit.cover),
         Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
             title: Text(
               appTranslation(context).appTitle,
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
+              "Islami",
+              style: Theme.of(context).textTheme.displayLarge,
             ),
             centerTitle: true,
             backgroundColor: Colors.transparent,
@@ -33,10 +36,10 @@ class _HomeScreenState extends State<HomeScreen> {
           body: tabs[selectedIndex] ,
           bottomNavigationBar: BottomNavigationBar(
             items: [
-              BottomNavItms(appTranslation(context).quranTab , getFullPath("ic_quran.png")),
-              BottomNavItms(appTranslation(context).hadethTab, getFullPath("ic_hadeth.png")),
-              BottomNavItms(appTranslation(context).tasbehTab, getFullPath("ic_sebha.png")),
-              BottomNavItms(appTranslation(context).radioTab, getFullPath("ic_radio.png")),
+              BottomNavItms(appTranslation(context).quranTab, getFullPath("ic_quran.png"),Theme.of(context).colorScheme.primary),
+              BottomNavItms(appTranslation(context).hadethTab, getFullPath("ic_hadeth.png"),Theme.of(context).colorScheme.primary),
+              BottomNavItms(appTranslation(context).tasbehTab, getFullPath("ic_sebha.png"),Theme.of(context).colorScheme.primary),
+              BottomNavItms(appTranslation(context).radioTab, getFullPath("ic_radio.png"),Theme.of(context).colorScheme.primary),
             ],
             onTap: (index) {
               setState(() {
