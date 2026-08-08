@@ -25,6 +25,8 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: Colors.transparent,
           appBar: AppBar(
             title: Text(
+              appTranslation(context).appTitle,
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
               "Islami",
               style: Theme.of(context).textTheme.displayLarge,
             ),
@@ -34,10 +36,10 @@ class _HomeScreenState extends State<HomeScreen> {
           body: tabs[selectedIndex] ,
           bottomNavigationBar: BottomNavigationBar(
             items: [
-              BottomNavItms("Quran", getFullPath("ic_quran.png"),Theme.of(context).colorScheme.primary),
-              BottomNavItms("Hadeth", getFullPath("ic_hadeth.png"),Theme.of(context).colorScheme.primary),
-              BottomNavItms("Tasbeh", getFullPath("ic_sebha.png"),Theme.of(context).colorScheme.primary),
-              BottomNavItms("Radio", getFullPath("ic_radio.png"),Theme.of(context).colorScheme.primary),
+              BottomNavItms(appTranslation(context).quranTab, getFullPath("ic_quran.png"),Theme.of(context).colorScheme.primary),
+              BottomNavItms(appTranslation(context).hadethTab, getFullPath("ic_hadeth.png"),Theme.of(context).colorScheme.primary),
+              BottomNavItms(appTranslation(context).tasbehTab, getFullPath("ic_sebha.png"),Theme.of(context).colorScheme.primary),
+              BottomNavItms(appTranslation(context).radioTab, getFullPath("ic_radio.png"),Theme.of(context).colorScheme.primary),
             ],
             onTap: (index) {
               setState(() {
