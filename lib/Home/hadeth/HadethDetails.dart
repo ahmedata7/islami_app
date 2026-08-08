@@ -8,17 +8,17 @@ class Hadethdetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 5),
       child: SizedBox(
         width: double.infinity,
         child: OutlinedButton(onPressed: () {
           Navigator.pushNamed(context, HadethView.routeName,arguments: hadethDetailsArgs(hadethName: hadethtitle, hadethindex: hadethindex));
-        }, child:Text(
-          hadethtitle,
-          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
-        ),style: OutlinedButton.styleFrom(shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),),),
+        }, child:Center(
+          child: Text(
+            hadethtitle,
+            style: Theme.of(context).textTheme.displayMedium,
+          ),
+        ),style:Theme.of(context).outlinedButtonTheme.style ,),
       ),
     );
   }

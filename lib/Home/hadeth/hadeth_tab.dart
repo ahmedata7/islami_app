@@ -62,7 +62,7 @@ class HadethTab extends StatelessWidget {
       backgroundColor: Colors.transparent,
       body: Column(
         children: [
-          Image.asset(getFullPath("ic_quran_header.png")),
+          Image.asset(getFullPath("hadith_header.png")),
           SizedBox(height: 10),
           Container(
             width: double.infinity,
@@ -71,7 +71,7 @@ class HadethTab extends StatelessWidget {
           ),
           Text(
             "Hadeth Name",
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+            style: Theme.of(context).textTheme.displayLarge,
           ),
           Container(
             width: double.infinity,
@@ -85,7 +85,7 @@ class HadethTab extends StatelessWidget {
               },
               separatorBuilder: (context, index) => Container(
                 width: double.infinity,
-                height: 7,
+                height: 4,
               ),
               itemCount: hadithNames.length,
             ),

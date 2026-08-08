@@ -21,6 +21,8 @@ class IslamiApp extends StatelessWidget {
         HadethView.routeName: (context) => HadethView(),
       },
       theme: themeStyle.lightTheme,
+      darkTheme: themeStyle.darkTheme,
+      themeMode:ThemeMode.dark,
     );
   }
 }
