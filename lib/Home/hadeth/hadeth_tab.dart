@@ -70,7 +70,7 @@ class HadethTab extends StatelessWidget {
             color: themeStyle.lightPrimary,
           ),
           Text(
-            "Hadeth Name",
+            appTranslation(context).hadethTitle,
             style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
           ),
           Container(
