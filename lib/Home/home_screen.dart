@@ -3,6 +3,7 @@ import 'package:islami_app/Home/bottom_nav_items.dart';
 import 'package:islami_app/Home/hadeth/hadeth_tab.dart';
 import 'package:islami_app/Home/quran/quran_tab.dart';
 import 'package:islami_app/Home/radio/radio_tab.dart';
+import 'package:islami_app/Home/settings/settingsTab.dart';
 import 'package:islami_app/Home/tasbeh/tasbeh_tab.dart';
 import 'package:islami_app/getImagePath.dart';
 import 'package:islami_app/themes/theme_data.dart';
@@ -26,8 +27,6 @@ class _HomeScreenState extends State<HomeScreen> {
           appBar: AppBar(
             title: Text(
               appTranslation(context).appTitle,
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
-              "Islami",
               style: Theme.of(context).textTheme.displayLarge,
             ),
             centerTitle: true,
@@ -36,10 +35,11 @@ class _HomeScreenState extends State<HomeScreen> {
           body: tabs[selectedIndex] ,
           bottomNavigationBar: BottomNavigationBar(
             items: [
-              BottomNavItms(appTranslation(context).quranTab, getFullPath("ic_quran.png"),Theme.of(context).colorScheme.primary),
-              BottomNavItms(appTranslation(context).hadethTab, getFullPath("ic_hadeth.png"),Theme.of(context).colorScheme.primary),
-              BottomNavItms(appTranslation(context).tasbehTab, getFullPath("ic_sebha.png"),Theme.of(context).colorScheme.primary),
-              BottomNavItms(appTranslation(context).radioTab, getFullPath("ic_radio.png"),Theme.of(context).colorScheme.primary),
+              BottomNavItms(appTranslation(context).quranTab, Theme.of(context).colorScheme.primary,imagePath: getFullPath("ic_quran.png")),
+              BottomNavItms(appTranslation(context).hadethTab, Theme.of(context).colorScheme.primary,imagePath: getFullPath("ic_hadeth.png"),),
+              BottomNavItms(appTranslation(context).tasbehTab, Theme.of(context).colorScheme.primary,imagePath: getFullPath("ic_sebha.png"),),
+              BottomNavItms(appTranslation(context).radioTab, Theme.of(context).colorScheme.primary,imagePath: getFullPath("ic_radio.png"),),
+              BottomNavItms(appTranslation(context).settingsTab,Theme.of(context).colorScheme.primary,addIcon: Icon(Icons.settings)),
             ],
             onTap: (index) {
               setState(() {
@@ -52,5 +52,5 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
     );
   }
-  var tabs = [QuranTab(),HadethTab(),TasbehTab(),RadioTab()];
+  var tabs = [QuranTab(),HadethTab(),TasbehTab(),RadioTab(),Settingstab()];
 }

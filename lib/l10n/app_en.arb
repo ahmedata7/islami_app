@@ -5,6 +5,7 @@
   "quranTab" : "Quran",
   "hadethTab" : "Hadeth",
   "tasbehTab" : "Tasbeh",
-  "radioTab" : "Radio"
+  "radioTab" : "Radio",
+  "settingsTab" : "Settings"
 
 }
