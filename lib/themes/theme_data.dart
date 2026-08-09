@@ -48,7 +48,20 @@ class themeStyle {
             fontSize: 25,
             fontWeight: FontWeight.w500,
             fontFamily: "inter"
-        )
+        ),
+      displaySmall: TextStyle(
+        color: Colors.black,
+        fontFamily: "inter",
+        fontWeight: FontWeight.w500,
+        fontSize: 17
+      ),
+      bodySmall:
+      TextStyle(
+          color: Colors.black,
+          fontFamily: "inter",
+          fontWeight: FontWeight.w500,
+          fontSize: 20
+      ),
     ),
     cardTheme: CardThemeData(color: Colors.white),
   );
@@ -77,6 +90,19 @@ class themeStyle {
         fontSize: 25,
         fontWeight: FontWeight.w500,
         fontFamily: "inter",
+      ),
+        displaySmall: TextStyle(
+            color: Colors.white,
+            fontFamily: "inter",
+            fontWeight: FontWeight.w500,
+            fontSize: 17
+        ),
+      bodySmall:
+      TextStyle(
+          color: darkSecondry,
+          fontFamily: "inter",
+          fontWeight: FontWeight.w500,
+          fontSize: 20
       ),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
