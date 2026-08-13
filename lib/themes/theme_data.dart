@@ -4,7 +4,7 @@ class themeStyle {
   static final Color lightPrimary = Color(0xFFB7935F);
   static final Color darkPrimary = Color(0xFF141A2E);
   static final Color darkSecondry = Color(0xFFFACC1D);
-  static const bool isDark = true;
+  static final bool isDark = true;
   static final ThemeData lightTheme = ThemeData(
     colorScheme: ColorScheme.fromSeed(
       seedColor: lightPrimary,
@@ -23,7 +23,18 @@ class themeStyle {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       ),
     ),
-
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+        backgroundColor: lightPrimary
+      ),
+    ),
+    bottomSheetTheme: BottomSheetThemeData(
+      backgroundColor: lightPrimary
+    ),
+    iconTheme: IconThemeData(
+      color: Colors.black
+    ),
     textTheme: TextTheme(
         displayMedium: TextStyle(
             color: Colors.black,
@@ -53,14 +64,14 @@ class themeStyle {
         color: Colors.black,
         fontFamily: "inter",
         fontWeight: FontWeight.w500,
-        fontSize: 17
+        fontSize: 15
       ),
       bodySmall:
       TextStyle(
           color: Colors.black,
           fontFamily: "inter",
           fontWeight: FontWeight.w500,
-          fontSize: 20
+          fontSize: 18
       ),
     ),
     cardTheme: CardThemeData(color: Colors.white),
@@ -102,13 +113,14 @@ class themeStyle {
           color: darkSecondry,
           fontFamily: "inter",
           fontWeight: FontWeight.w500,
-          fontSize: 20
+          fontSize: 18
       ),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       ),
+
     ),
     colorScheme: ColorScheme.fromSeed(
       seedColor: darkPrimary,
@@ -122,5 +134,11 @@ class themeStyle {
       unselectedItemColor: Colors.white,
     ),
     cardTheme: CardThemeData(color: darkPrimary),
+    bottomSheetTheme: BottomSheetThemeData(
+        backgroundColor: darkPrimary
+    ),
+    iconTheme: IconThemeData(
+        color: darkSecondry
+    ),
   );
 }
