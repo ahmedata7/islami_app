@@ -1,23 +1,45 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/providers/themeProvider.dart';
+import 'package:islami_app/themes/theme_data.dart';
+import 'package:provider/provider.dart';
 
-class Themebottomsheet extends StatelessWidget {
+class Themebottomsheet extends StatefulWidget {
+  @override
+  State<Themebottomsheet> createState() => _ThemebottomsheetState();
+}
+
+class _ThemebottomsheetState extends State<Themebottomsheet> {
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            selecteItem("dark"),
+            InkWell(
+              onTap: (){
+                setState(() {
+                  themeProvider.changeTheme(ThemeMode.light);
+                });
+              },
+            child: themeProvider.isDark()?selecteItem(context,"Light"):unSelectedItem(context, "Light")),
             Divider(height: 20,),
-            unSelectedItem("light")
+            InkWell(
+                onTap: (){
+                  setState(() {
+                    themeProvider.changeTheme(ThemeMode.dark);
+                  });
+                },
+                child: themeProvider.isDark()?unSelectedItem(context, "Dark"):selecteItem(context,"Dark"))
           ],
         ),
       ),
     );
   }
-  Widget selecteItem(String text){
+
+  Widget selecteItem(BuildContext cotext ,String text){
     return Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -26,7 +48,8 @@ class Themebottomsheet extends StatelessWidget {
     ]
     );
   }
-  Widget unSelectedItem(String text){
+
+  Widget unSelectedItem(BuildContext context , String text){
     return Text(text);
   }
 }

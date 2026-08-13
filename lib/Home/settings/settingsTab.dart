@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/Home/settings/languageBottomSheet.dart';
 import 'package:islami_app/Home/settings/themeBottomSheet.dart';
+import 'package:islami_app/providers/themeProvider.dart';
+import 'package:islami_app/providers/translateProvider.dart';
+import 'package:provider/provider.dart';
 
 class Settingstab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+    TranslateProvider translateProvider = Provider.of<TranslateProvider>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Theme Mode",style: Theme.of(context).textTheme.displaySmall,),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text("Theme Mode",style: Theme.of(context).textTheme.displaySmall,),
+        ),
         Padding(
           padding: const EdgeInsets.all(8),
           child: InkWell(
@@ -21,13 +29,16 @@ class Settingstab extends StatelessWidget {
                 padding:EdgeInsets.symmetric(vertical: 4,horizontal: 17),
                 decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
-              color: Theme.of(context).cardColor,
+              color: Theme.of(context).colorScheme.primary,
               border: Border.all(color: Theme.of(context).colorScheme.secondary,width: 4)
             ),
-                child: Text("Light",style: Theme.of(context).textTheme.bodySmall,)),
+                child: Text(themeProvider.isDark()?"Light":"Dark",style: Theme.of(context).textTheme.bodySmall,)),
           ),
         ),
-        Text("Language",style: Theme.of(context).textTheme.displaySmall,),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text("Language",style: Theme.of(context).textTheme.displaySmall,),
+        ),
         Padding(
           padding: const EdgeInsets.all(8),
           child: InkWell(
@@ -39,10 +50,10 @@ class Settingstab extends StatelessWidget {
                 padding:EdgeInsets.symmetric(vertical: 4,horizontal: 17),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
-                    color: Theme.of(context).cardColor,
+                    color: Theme.of(context).colorScheme.primary,
                     border: Border.all(color: Theme.of(context).colorScheme.secondary,width: 4)
                 ),
-                child: Text("English",style: Theme.of(context).textTheme.bodySmall,)),
+                child: Text(translateProvider.isEnglish()?"English":"العربية",style: Theme.of(context).textTheme.bodySmall,)),
           ),
         ),
       ],

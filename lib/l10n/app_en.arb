@@ -6,6 +6,7 @@
   "hadethTab" : "Hadeth",
   "tasbehTab" : "Tasbeh",
   "radioTab" : "Radio",
-  "settingsTab" : "Settings"
+  "settingsTab" : "Settings",
+  "sebhaTitle" : "Counter Of Zekir"
 
 }

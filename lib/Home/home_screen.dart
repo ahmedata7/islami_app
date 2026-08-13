@@ -6,7 +6,9 @@ import 'package:islami_app/Home/radio/radio_tab.dart';
 import 'package:islami_app/Home/settings/settingsTab.dart';
 import 'package:islami_app/Home/tasbeh/tasbeh_tab.dart';
 import 'package:islami_app/getImagePath.dart';
+import 'package:islami_app/providers/themeProvider.dart';
 import 'package:islami_app/themes/theme_data.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "home-screen";
@@ -19,9 +21,10 @@ class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
     return Stack(
       children: [
-        Image.asset(getFullPath(themeStyle.isDark?"dark_background.png":"main_background.png"), fit: BoxFit.cover),
+        Image.asset(getFullPath(themeStyle.isDark == themeProvider.isDark()?"main_background.png":"dark_background.png"), fit: BoxFit.cover),
         Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
