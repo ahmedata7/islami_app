@@ -71,8 +71,6 @@ class HadethTab extends StatelessWidget {
           ),
           Text(
             appTranslation(context).hadethTitle,
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
-            "Hadeth Name",
             style: Theme.of(context).textTheme.displayLarge,
           ),
           Container(

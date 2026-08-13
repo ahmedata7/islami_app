@@ -5,6 +5,7 @@
   "quranTab" : "القرأن الكريم",
   "hadethTab" : "الحديث",
   "tasbehTab" : "ذكر",
-  "radioTab" : "الاذاعة"
+  "radioTab" : "الاذاعة",
+  "settingsTab" : "الأعدادات"
 
 }

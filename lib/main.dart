@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:islami_app/Home/hadeth/Hadeth_view.dart';
 import 'package:islami_app/Home/home_screen.dart';
 import 'package:islami_app/Home/quran/surah_view.dart';
@@ -22,11 +21,11 @@ class IslamiApp extends StatelessWidget {
         SurahView.routeName: (context) => SurahView(),
         HadethView.routeName: (context) => HadethView(),
       },
-      theme: themeStyle.lightTheme,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       locale: Locale("ar"),
       darkTheme: themeStyle.darkTheme,
+      theme: themeStyle.lightTheme,
       themeMode:ThemeMode.dark,
     );
   }
