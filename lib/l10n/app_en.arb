@@ -7,6 +7,12 @@
   "tasbehTab" : "Tasbeh",
   "radioTab" : "Radio",
   "settingsTab" : "Settings",
-  "sebhaTitle" : "Counter Of Zekir"
+  "sebhaTitle" : "Counter Of Zekir",
+  "languageTitle" : "Language",
+  "themeTitle" : "Theme Mode",
+  "lightTheme" : "Light",
+  "darkTheme" : "Dark",
+  "arabicLanguage" : "Arabic",
+  "englishLanguage" : "English"
 
 }

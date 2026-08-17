@@ -73,6 +73,12 @@ class themeStyle {
           fontWeight: FontWeight.w500,
           fontSize: 18
       ),
+        labelMedium: TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.w400,
+          fontSize: 20,
+          fontFamily: "inter",
+        )
     ),
     cardTheme: CardThemeData(color: Colors.white),
   );
@@ -115,6 +121,12 @@ class themeStyle {
           fontWeight: FontWeight.w500,
           fontSize: 18
       ),
+      labelMedium: TextStyle(
+        color: Colors.black,
+        fontWeight: FontWeight.w400,
+        fontSize: 20,
+        fontFamily: "inter",
+      )
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(

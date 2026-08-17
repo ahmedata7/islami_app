@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/Home/settings/languageBottomSheet.dart';
 import 'package:islami_app/Home/settings/themeBottomSheet.dart';
+import 'package:islami_app/getImagePath.dart';
 import 'package:islami_app/providers/themeProvider.dart';
 import 'package:islami_app/providers/translateProvider.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +17,7 @@ class Settingstab extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text("Theme Mode",style: Theme.of(context).textTheme.displaySmall,),
+          child: Text(appTranslation(context).themeTitle,style: Theme.of(context).textTheme.displaySmall,),
         ),
         Padding(
           padding: const EdgeInsets.all(8),
@@ -32,12 +33,12 @@ class Settingstab extends StatelessWidget {
               color: Theme.of(context).colorScheme.primary,
               border: Border.all(color: Theme.of(context).colorScheme.secondary,width: 4)
             ),
-                child: Text(themeProvider.isDark()?"Light":"Dark",style: Theme.of(context).textTheme.bodySmall,)),
+                child: Text(themeProvider.isDark()?appTranslation(context).lightTheme:appTranslation(context).darkTheme,style: Theme.of(context).textTheme.bodySmall,)),
           ),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text("Language",style: Theme.of(context).textTheme.displaySmall,),
+          child: Text(appTranslation(context).languageTitle,style: Theme.of(context).textTheme.displaySmall,),
         ),
         Padding(
           padding: const EdgeInsets.all(8),
@@ -53,7 +54,7 @@ class Settingstab extends StatelessWidget {
                     color: Theme.of(context).colorScheme.primary,
                     border: Border.all(color: Theme.of(context).colorScheme.secondary,width: 4)
                 ),
-                child: Text(translateProvider.isEnglish()?"English":"العربية",style: Theme.of(context).textTheme.bodySmall,)),
+                child: Text(translateProvider.isEnglish()?appTranslation(context).englishLanguage:appTranslation(context).arabicLanguage,style: Theme.of(context).textTheme.bodySmall,)),
           ),
         ),
       ],

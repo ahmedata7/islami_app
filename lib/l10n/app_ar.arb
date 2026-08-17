@@ -7,6 +7,13 @@
   "tasbehTab" : "ذكر",
   "radioTab" : "الاذاعة",
   "settingsTab" : "الأعدادات",
-  "sebhaTitle" : "عداد التسبيح"
+  "sebhaTitle" : "عداد التسبيح",
+  "languageTitle" : "اللغه",
+  "themeTitle" : "السمات",
+  "lightTheme" : "فاتح",
+  "darkTheme" : "داكن",
+  "arabicLanguage" : "العربية",
+  "englishLanguage" : "الانجليزية"
+
 
 }
