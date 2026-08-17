@@ -2,6 +2,9 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:islami_app/getImagePath.dart';
+import 'package:islami_app/providers/themeProvider.dart';
+import 'package:islami_app/themes/theme_data.dart';
+import 'package:provider/provider.dart';
 
 class TasbehTab extends StatefulWidget {
   @override
@@ -41,21 +44,22 @@ class _TasbehTabState extends State<TasbehTab> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Stack(
           alignment: Alignment.topCenter,
           children: [
-            Image.asset(getFullPath("ic_head_sebha.png")),
+            Image.asset(getFullPath(themeStyle.isDark == themeProvider.isDark()?"ic_head_sebha.png":"dark_ic_sebha_header.png")),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 38.0),
+              padding: EdgeInsets.symmetric(vertical: themeStyle.isDark == themeProvider.isDark() ?40 : 76),
               child: Center(
                 child: AnimatedRotation(
                   turns: sebhaRotation,
                   duration: const Duration(milliseconds:300 ),
                   curve: Curves.easeInOut,
-                  child: Image.asset(getFullPath("ic_body_sebha.png")),
+                  child: Image.asset(getFullPath(themeStyle.isDark == themeProvider.isDark()?"ic_body_sebha.png":"dark_ic_sebha_body.png")),
                 ),
               ),
             ),
@@ -81,15 +85,25 @@ class _TasbehTabState extends State<TasbehTab> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 90),
-                child: ElevatedButton(
-                  onPressed: () {
-                    onZikrPressed();
-                  },
-                  child: Text(
-                   zikr,
-                    style: Theme.of(context).textTheme.displayMedium,
+              child: InkWell(
+                onTap: (){
+                  onZikrPressed();
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 88.0),
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 50,
+                    width: 140,
+
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25),
+                      color: themeStyle.isDark == themeProvider.isDark() ? Theme.of(context).colorScheme.primary:Theme.of(context).colorScheme.secondary ,
+                    ),
+                    child: Text(
+                     zikr,
+                      style: Theme.of(context).textTheme.labelMedium,
+                    ),
                   ),
                 ),
               ),

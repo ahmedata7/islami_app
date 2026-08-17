@@ -8,11 +8,14 @@ import 'package:islami_app/providers/themeProvider.dart';
 import 'package:islami_app/providers/translateProvider.dart';
 import 'package:islami_app/themes/theme_data.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+void main()async{
+  WidgetsFlutterBinding.ensureInitialized();
+  var sharedPreferances = await SharedPreferences.getInstance();
   runApp(MultiProvider(providers: [
-    ChangeNotifierProvider(create:(context) =>  ThemeProvider(),),
-    ChangeNotifierProvider(create:(context) =>  TranslateProvider(),)
+    ChangeNotifierProvider(create:(context) =>  ThemeProvider(sharedPreferances),),
+    ChangeNotifierProvider(create:(context) =>  TranslateProvider(sharedPreferances),)
   ],
       child: IslamiApp()));
 }
@@ -32,7 +35,7 @@ class IslamiApp extends StatelessWidget {
       },
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      locale: translateProvider.currantLocale,
+      locale: Locale(translateProvider.currantLocale),
       darkTheme: themeStyle.darkTheme,
       theme: themeStyle.lightTheme,
       themeMode: themeProvider.currantTheme,

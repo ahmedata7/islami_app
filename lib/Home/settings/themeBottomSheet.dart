@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/getImagePath.dart';
 import 'package:islami_app/providers/themeProvider.dart';
 import 'package:islami_app/themes/theme_data.dart';
 import 'package:provider/provider.dart';
@@ -24,7 +25,7 @@ class _ThemebottomsheetState extends State<Themebottomsheet> {
                   themeProvider.changeTheme(ThemeMode.light);
                 });
               },
-            child: themeProvider.isDark()?selecteItem(context,"Light"):unSelectedItem(context, "Light")),
+            child: themeProvider.isDark()?selecteItem(context,appTranslation(context).lightTheme):unSelectedItem(context, appTranslation(context).lightTheme)),
             Divider(height: 20,),
             InkWell(
                 onTap: (){
@@ -32,7 +33,7 @@ class _ThemebottomsheetState extends State<Themebottomsheet> {
                     themeProvider.changeTheme(ThemeMode.dark);
                   });
                 },
-                child: themeProvider.isDark()?unSelectedItem(context, "Dark"):selecteItem(context,"Dark"))
+                child: themeProvider.isDark()?unSelectedItem(context, appTranslation(context).darkTheme):selecteItem(context,appTranslation(context).darkTheme))
           ],
         ),
       ),
@@ -50,6 +51,12 @@ class _ThemebottomsheetState extends State<Themebottomsheet> {
   }
 
   Widget unSelectedItem(BuildContext context , String text){
-    return Text(text);
+    return Expanded(
+      child: Row(
+        children: [
+          Text(text),
+        ],
+      ),
+    );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/getImagePath.dart';
 import 'package:islami_app/providers/translateProvider.dart';
 import 'package:provider/provider.dart';
 
@@ -19,17 +20,17 @@ class _LanguagebottomsheetState extends State<Languagebottomsheet> {
           children: [
             InkWell(onTap: (){
               setState(() {
-                translateProvider.changeLocale(Locale("en"));
+                translateProvider.changeLocale("en");
               });
             },
-                child: translateProvider.isEnglish()?selecteItem(context,"English"):unSelectedItem(context, "English")),
+                child: translateProvider.isEnglish()?selecteItem(context,appTranslation(context).englishLanguage):unSelectedItem(context, appTranslation(context).englishLanguage)),
             Divider(height: 20,),
             InkWell(onTap:(){
               setState(() {
-                translateProvider.changeLocale(Locale("ar"));
+                translateProvider.changeLocale("ar");
               });
             },
-            child:translateProvider.isEnglish()?unSelectedItem(context,"العربيه"):selecteItem(context, "العربية"))
+            child:translateProvider.isEnglish()?unSelectedItem(context,appTranslation(context).arabicLanguage):selecteItem(context,appTranslation(context).arabicLanguage))
           ],
         ),
       ),
@@ -47,6 +48,12 @@ class _LanguagebottomsheetState extends State<Languagebottomsheet> {
   }
 
   Widget unSelectedItem(BuildContext context ,String text){
-    return Text(text);
+    return Expanded(
+      child: Row(
+        children: [
+          Text(text),
+        ],
+      ),
+    );
   }
 }
